@@ -16,6 +16,7 @@ function pressedEnter(e){
 
 function zeroTimer(){
     clearInterval(timer_id)
+    start_button.textContent = 'Start';
     for (i of digits) {
         i.value = null;
         i.disabled = false;
@@ -33,7 +34,6 @@ function startTimer(e){
         
     }
     else {
-        
         start_button.textContent = 'Start';
         for (i of digits) {
             i.disabled = false;
@@ -41,8 +41,6 @@ function startTimer(e){
         clearInterval(timer_id);
         return false;
     }
-
-
 
     for (i of digits){
         if (i.value == '') i.value = '0'
@@ -54,10 +52,6 @@ function startTimer(e){
     const hours = document.getElementsByClassName('hours');
     const minutes = document.getElementsByClassName('minutes');
     const seconds = document.getElementsByClassName('seconds');
-
-
-
-
 
     for (i of hours) value += i.value;
     total_seconds += parseInt(value) * 3600;   
@@ -71,26 +65,16 @@ function startTimer(e){
     total_seconds += parseInt(value);
 
     if (!total_seconds) return false;
-
-
-
-    // start_button.textContent = 'Pause';
     for (i of digits) i.disabled = true;
 
     let h, m, s;
 
     timer_id = setInterval( () => {
         total_seconds -= 1;
-        console.log(total_seconds);
-
-
-        // Implement display timer ..
 
         h = Math.floor(total_seconds / 3600);
         m = Math.floor((total_seconds % 3600) / 60);
         s = (total_seconds % 3600) % 60;
-        
-        console.log(`${h}:${m}:${s}`);
 
         digits[0].value = Math.floor(h / 10);
         digits[1].value = h % 10;
