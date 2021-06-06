@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Timer-JS/css/style.css">
+    <link rel="shortcut icon" href="#">
+    <script defer src="/Timer-JS/js/script.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="container" onkeypress="pressedEnter(event)">
+
+        <div id="stopwatch"> 
+            <div class="digits">
+                <input onkeypress="return num_valid(event, 5, 1)" placeholder="0" maxlength="1" class="time-input hours" type="text">
+                <input onkeypress="return num_valid(event, 9, 2)" placeholder="0"  maxlength="1" class="time-input hours" type="text">
+            </div>
+            
+            <div class="digits">
+                <input onkeypress="return num_valid(event, 5, 3)" placeholder="0"  maxlength="1" class="time-input minutes" type="text">
+                <input onkeypress="return num_valid(event, 9, 4)" placeholder="0"  maxlength="1" class="time-input minutes" type="text">
+            </div>
+
+            <div class="digits">
+                <input onkeypress="return num_valid(event, 5, 5)" placeholder="0"  maxlength="1" class="time-input seconds" type="text">
+                <input onkeypress="return num_valid(event, 9, 6)" placeholder="0"  maxlength="1" class="time-input seconds" type="text">
+            </div>
+
+
+            <!-- <p>00:00:00</p> -->
+        </div>
+
+
+        <div class="container" style="flex-direction: row;">
+            <button onmousedown="zeroTimer()" class="btn">Reset</button>
+            <button id="start-btn" onmousedown="startTimer(event.target)" class="btn">Start</button>
+            <button class="btn">Nothing</button>
+
+        </div>
+
+
+    </div>
+    
+
+</body>
+</html>
