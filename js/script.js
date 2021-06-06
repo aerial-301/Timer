@@ -1,3 +1,4 @@
+"use strict";
 const digits = document.getElementsByClassName('time-input');
 const start_button = document.getElementById("start-btn");
 let paused = true;
@@ -17,7 +18,7 @@ function pressedEnter(e){
 function zeroTimer(){
     clearInterval(timer_id)
     start_button.textContent = 'Start';
-    for (i of digits) {
+    for (let i of digits) {
         i.value = null;
         i.disabled = false;
     }
@@ -26,7 +27,7 @@ function zeroTimer(){
 function startTimer(e){
 
     let x = 0;
-    for (i of digits) x += i.value;
+    for (let i of digits) x += i.value;
     if (x == 0) return false
     
     if (e.textContent == 'Start'){
@@ -35,14 +36,14 @@ function startTimer(e){
     }
     else {
         start_button.textContent = 'Start';
-        for (i of digits) {
+        for (let i of digits) {
             i.disabled = false;
         }
         clearInterval(timer_id);
         return false;
     }
 
-    for (i of digits){
+    for (let i of digits){
         if (i.value == '') i.value = '0'
     }
 
@@ -53,19 +54,19 @@ function startTimer(e){
     const minutes = document.getElementsByClassName('minutes');
     const seconds = document.getElementsByClassName('seconds');
 
-    for (i of hours) value += i.value;
+    for (let i of hours) value += i.value;
     total_seconds += parseInt(value) * 3600;   
     value = '';
      
-    for (i of minutes) value += i.value;
+    for (let i of minutes) value += i.value;
     total_seconds += parseInt(value) * 60; 
     value = '';
 
-    for (i of seconds) value += i.value;
+    for (let i of seconds) value += i.value;
     total_seconds += parseInt(value);
 
     if (!total_seconds) return false;
-    for (i of digits) i.disabled = true;
+    for (let i of digits) i.disabled = true;
 
     let h, m, s;
 
